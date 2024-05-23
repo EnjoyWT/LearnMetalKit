@@ -15,6 +15,8 @@
 		F2B7C7E72BFC962800289100 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B7C7E52BFC962800289100 /* LaunchScreen.storyboard */; };
 		F2B7C7F12BFC980D00289100 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B7C7F02BFC980D00289100 /* BaseViewController.swift */; };
 		F2B7C7F42BFC988000289100 /* Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B7C7F32BFC988000289100 /* Day1.swift */; };
+		F2B7C7F82BFDB99F00289100 /* Day2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B7C7F72BFDB99F00289100 /* Day2.swift */; };
+		F2B7C7FA2BFDBABC00289100 /* AAPLShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = F2B7C7F92BFDBABC00289100 /* AAPLShaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,10 @@
 		F2B7C7E82BFC962800289100 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2B7C7F02BFC980D00289100 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F2B7C7F32BFC988000289100 /* Day1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day1.swift; sourceTree = "<group>"; };
+		F2B7C7F72BFDB99F00289100 /* Day2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day2.swift; sourceTree = "<group>"; };
+		F2B7C7F92BFDBABC00289100 /* AAPLShaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = AAPLShaders.metal; sourceTree = "<group>"; };
+		F2B7C7FB2BFDBD9B00289100 /* LearnMetalKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LearnMetalKit-Bridging-Header.h"; sourceTree = "<group>"; };
+		F2B7C7FF2BFDBE6A00289100 /* AAPLShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPLShaderTypes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,7 @@
 				F2B7C7E32BFC962800289100 /* Assets.xcassets */,
 				F2B7C7E52BFC962800289100 /* LaunchScreen.storyboard */,
 				F2B7C7E82BFC962800289100 /* Info.plist */,
+				F2B7C7FB2BFDBD9B00289100 /* LearnMetalKit-Bridging-Header.h */,
 			);
 			path = LearnMetalKit;
 			sourceTree = "<group>";
@@ -77,6 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				F2B7C7F32BFC988000289100 /* Day1.swift */,
+				F2B7C7F72BFDB99F00289100 /* Day2.swift */,
+				F2B7C7F92BFDBABC00289100 /* AAPLShaders.metal */,
+				F2B7C7FF2BFDBE6A00289100 /* AAPLShaderTypes.h */,
 			);
 			path = Days;
 			sourceTree = "<group>";
@@ -121,6 +131,7 @@
 				TargetAttributes = {
 					F2B7C7D62BFC962700289100 = {
 						CreatedOnToolsVersion = 15.1;
+						LastSwiftMigration = 1510;
 					};
 				};
 			};
@@ -161,6 +172,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2B7C7DF2BFC962700289100 /* ViewController.swift in Sources */,
+				F2B7C7F82BFDB99F00289100 /* Day2.swift in Sources */,
+				F2B7C7FA2BFDBABC00289100 /* AAPLShaders.metal in Sources */,
 				F2B7C7F42BFC988000289100 /* Day1.swift in Sources */,
 				F2B7C7F12BFC980D00289100 /* BaseViewController.swift in Sources */,
 				F2B7C7DB2BFC962700289100 /* AppDelegate.swift in Sources */,
@@ -314,6 +327,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 99F84FJW57;
@@ -333,6 +347,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = yolosolo.LearnMetalKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "LearnMetalKit/LearnMetalKit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -343,6 +359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 99F84FJW57;
@@ -362,6 +379,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = yolosolo.LearnMetalKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "LearnMetalKit/LearnMetalKit-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
