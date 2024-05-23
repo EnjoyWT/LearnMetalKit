@@ -36,7 +36,6 @@ class Day3: BaseViewController {
         vertices()
         setupTexture()
 
-     
         viewPortSize = vector_uint2(UInt32(metalView.drawableSize.width), UInt32(metalView.drawableSize.height))
     }
 
@@ -60,23 +59,48 @@ class Day3: BaseViewController {
     }
 
     func vertices() {
-        // 渲染图片和当前的窗口大小一致, 图片纹理坐标y轴是颠倒的(仅指当前的数据和NDC布局数值颠倒).
+        /* 渲染图片和当前的窗口大小一致,这个和OpenGl中图片纹理坐标不一样
+          https://juejin.cn/post/6844904040191492104
+         在 iOS 中，图片纹理坐标系统的原点(0, 0)位于左上角。
+
+         X 轴的正方向是从左到右。
+         Y 轴的正方向是从上到下。
+
+         这与 Core Graphics 和 UIKit 中使用的坐标系统相同。
+         也就是说，纹理坐标系统中:
+
+         (0, 0) 表示左上角
+         (1, 0) 表示右上角
+         (0, 1) 表示左下角
+         (1, 1) 表示右下角 */
         triangleVertices = [
             LYVertex(position: vector_float4(1, -1, 0.0, 1.0), textureCoordinate: vector_float2(1.0, 1.0)),
             LYVertex(position: vector_float4(-1, -1, 0.0, 1.0), textureCoordinate: vector_float2(0.0, 1.0)),
             LYVertex(position: vector_float4(-1, 1, 0.0, 1.0), textureCoordinate: vector_float2(0.0, 0.0)),
+
             LYVertex(position: vector_float4(1, -1, 0.0, 1.0), textureCoordinate: vector_float2(1.0, 1.0)),
             LYVertex(position: vector_float4(-1, 1, 0.0, 1.0), textureCoordinate: vector_float2(0.0, 0.0)),
             LYVertex(position: vector_float4(1, 1, 0.0, 1.0), textureCoordinate: vector_float2(1.0, 0.0))
         ]
-
-//        let t = [
-//            LYVertex(position: vector_float4(1, -1, 0.0, 1.0), textureCoordinate: vector_float2(1.0, 1.0)),
-//            LYVertex(position: vector_float4(-1, -1, 0.0, 1.0), textureCoordinate: vector_float2(0.0, 1.0)),
-//            LYVertex(position: vector_float4(-1, 1, 0.0, 1.0), textureCoordinate: vector_float2(0.0, 0.0)),
-//            LYVertex(position: vector_float4(1, -1, 0.0, 1.0), textureCoordinate: vector_float2(1.0, 1.0)),
-//            LYVertex(position: vector_float4(-1, 1, 0.0, 1.0), textureCoordinate: vector_float2(0.0, 0.0)),
-//            LYVertex(position: vector_float4(1, 1, 0.0, 1.0), textureCoordinate: vector_float2(1.0, 0.0))
+        // 旋转像屏幕向翻转180
+//        triangleVertices = [
+//            LYVertex(position: vector_float4(1, -1, 0.0, 1.0), textureCoordinate: vector_float2(1.0, 0.0)),
+//            LYVertex(position: vector_float4(-1, -1, 0.0, 1.0), textureCoordinate: vector_float2(0.0, 0.0)),
+//            LYVertex(position: vector_float4(-1, 1, 0.0, 1.0), textureCoordinate: vector_float2(0.0, 1.0)),
+//
+//            LYVertex(position: vector_float4(1, -1, 0.0, 1.0), textureCoordinate: vector_float2(1.0, 0.0)),
+//            LYVertex(position: vector_float4(-1, 1, 0.0, 1.0), textureCoordinate: vector_float2(0.0, 1.0)),
+//            LYVertex(position: vector_float4(1, 1, 0.0, 1.0), textureCoordinate: vector_float2(1.0, 1.0))
+//        ]
+        // 顺指针旋转 90 ,和opengl中有向图纹理 保持一致
+//        triangleVertices = [
+//            LYVertex(position: vector_float4(1, -1, 0.0, 1.0), textureCoordinate: vector_float2(1.0, 0.0)),
+//            LYVertex(position: vector_float4(-1, -1, 0.0, 1.0), textureCoordinate: vector_float2(1.0, 1.0)),
+//            LYVertex(position: vector_float4(-1, 1, 0.0, 1.0), textureCoordinate: vector_float2(0.0, 1.0)),
+//
+//            LYVertex(position: vector_float4(1, -1, 0.0, 1.0), textureCoordinate: vector_float2(1.0, 0.0)),
+//            LYVertex(position: vector_float4(-1, 1, 0.0, 1.0), textureCoordinate: vector_float2(0.0, 1.0)),
+//            LYVertex(position: vector_float4(1, 1, 0.0, 1.0), textureCoordinate: vector_float2(0.0, 0.0))
 //        ]
 
         verticesSize = triangleVertices.count * MemoryLayout<LYVertex>.stride
@@ -137,7 +161,7 @@ class Day3: BaseViewController {
             texture?.replace(region: region, mipmapLevel: 0, withBytes: imageBytes, bytesPerRow: 4 * Int(image.size.width))
             free(imageBytes) // 需要释放资源
         }
-        //这里偷懒了.进行了二次处理,因为不知道图片的大小.
+        // 这里偷懒了.进行了二次处理,因为不知道图片的大小.
         triangleVertices = calculateVertices(for: .scaleAspectFit, textureSize: CGSize(width: Int(image.size.width), height: Int(image.size.height)), viewSize: metalView.drawableSize)
     }
 
