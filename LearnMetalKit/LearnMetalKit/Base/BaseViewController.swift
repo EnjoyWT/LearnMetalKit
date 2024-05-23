@@ -23,9 +23,9 @@ class BaseViewController: UIViewController {
         device = MTLCreateSystemDefaultDevice()
 
         // 创建 MTKView
-        metalView = MTKView(frame: CGRect(x: 100, y: 150, width: 200, height: 100), device: device)
-
-//        metalView = MTKView(frame: view.bounds, device: device)
+//        metalView = MTKView(frame: CGRect(x: 100, y: 150, width: 200, height: 100), device: device)
+       
+        metalView = MTKView(frame: view.bounds, device: device)
 //        metalView.enableSetNeedsDisplay = true // 是否实时绘制
 
         metalView.clearColor = MTLClearColor(red: 1, green: 0.0, blue: 0.0, alpha: 1.0)

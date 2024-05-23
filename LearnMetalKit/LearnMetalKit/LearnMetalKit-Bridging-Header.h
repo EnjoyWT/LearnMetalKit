@@ -6,4 +6,5 @@
 //#define LearnMetalKit_Bridging_Header_h
 
 #import "AAPLShaderTypes.h"
+#import "LYShaderTypes.h"
 //#endif

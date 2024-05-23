@@ -17,6 +17,9 @@
 		F2B7C7F42BFC988000289100 /* Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B7C7F32BFC988000289100 /* Day1.swift */; };
 		F2B7C7F82BFDB99F00289100 /* Day2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B7C7F72BFDB99F00289100 /* Day2.swift */; };
 		F2B7C7FA2BFDBABC00289100 /* AAPLShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = F2B7C7F92BFDBABC00289100 /* AAPLShaders.metal */; };
+		F2B7C8032BFEE5C800289100 /* Day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B7C8022BFEE5C800289100 /* Day3.swift */; };
+		F2B7C8052BFEE5EE00289100 /* Day3.metal in Sources */ = {isa = PBXBuildFile; fileRef = F2B7C8042BFEE5EE00289100 /* Day3.metal */; };
+		F2B7C8082BFF253D00289100 /* abc.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B7C8072BFF253C00289100 /* abc.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,10 @@
 		F2B7C7F92BFDBABC00289100 /* AAPLShaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = AAPLShaders.metal; sourceTree = "<group>"; };
 		F2B7C7FB2BFDBD9B00289100 /* LearnMetalKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LearnMetalKit-Bridging-Header.h"; sourceTree = "<group>"; };
 		F2B7C7FF2BFDBE6A00289100 /* AAPLShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPLShaderTypes.h; sourceTree = "<group>"; };
+		F2B7C8022BFEE5C800289100 /* Day3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day3.swift; sourceTree = "<group>"; };
+		F2B7C8042BFEE5EE00289100 /* Day3.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Day3.metal; sourceTree = "<group>"; };
+		F2B7C8062BFF221600289100 /* LYShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYShaderTypes.h; sourceTree = "<group>"; };
+		F2B7C8072BFF253C00289100 /* abc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +90,9 @@
 		F2B7C7EE2BFC964200289100 /* Days */ = {
 			isa = PBXGroup;
 			children = (
+				F2B7C8012BFEE5AC00289100 /* Day3 */,
+				F2B7C8002BFEE58D00289100 /* Day2 */,
 				F2B7C7F32BFC988000289100 /* Day1.swift */,
-				F2B7C7F72BFDB99F00289100 /* Day2.swift */,
-				F2B7C7F92BFDBABC00289100 /* AAPLShaders.metal */,
-				F2B7C7FF2BFDBE6A00289100 /* AAPLShaderTypes.h */,
 			);
 			path = Days;
 			sourceTree = "<group>";
@@ -97,6 +103,27 @@
 				F2B7C7F02BFC980D00289100 /* BaseViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		F2B7C8002BFEE58D00289100 /* Day2 */ = {
+			isa = PBXGroup;
+			children = (
+				F2B7C7F72BFDB99F00289100 /* Day2.swift */,
+				F2B7C7F92BFDBABC00289100 /* AAPLShaders.metal */,
+				F2B7C7FF2BFDBE6A00289100 /* AAPLShaderTypes.h */,
+			);
+			path = Day2;
+			sourceTree = "<group>";
+		};
+		F2B7C8012BFEE5AC00289100 /* Day3 */ = {
+			isa = PBXGroup;
+			children = (
+				F2B7C8072BFF253C00289100 /* abc.png */,
+				F2B7C8022BFEE5C800289100 /* Day3.swift */,
+				F2B7C8062BFF221600289100 /* LYShaderTypes.h */,
+				F2B7C8042BFEE5EE00289100 /* Day3.metal */,
+			);
+			path = Day3;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2B7C8082BFF253D00289100 /* abc.png in Resources */,
 				F2B7C7E72BFC962800289100 /* LaunchScreen.storyboard in Resources */,
 				F2B7C7E42BFC962800289100 /* Assets.xcassets in Resources */,
 				F2B7C7E22BFC962700289100 /* Main.storyboard in Resources */,
@@ -176,7 +204,9 @@
 				F2B7C7FA2BFDBABC00289100 /* AAPLShaders.metal in Sources */,
 				F2B7C7F42BFC988000289100 /* Day1.swift in Sources */,
 				F2B7C7F12BFC980D00289100 /* BaseViewController.swift in Sources */,
+				F2B7C8052BFEE5EE00289100 /* Day3.metal in Sources */,
 				F2B7C7DB2BFC962700289100 /* AppDelegate.swift in Sources */,
+				F2B7C8032BFEE5C800289100 /* Day3.swift in Sources */,
 				F2B7C7DD2BFC962700289100 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
