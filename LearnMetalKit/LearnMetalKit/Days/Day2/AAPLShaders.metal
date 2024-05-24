@@ -13,7 +13,7 @@ using namespace metal;
 #include "AAPLShaderTypes.h"
 
 // Vertex shader outputs and fragment shader inputs
-struct RasterizerData
+struct RasterizerDataDay2
 {
     // The [[position]] attribute of this member indicates that this value
     // is the clip space position of the vertex when this structure is
@@ -27,12 +27,12 @@ struct RasterizerData
     float4 color ;
 };
 
-vertex RasterizerData
+vertex RasterizerDataDay2
 vertexShader(uint vertexID [[vertex_id]],
              constant AAPLVertex *vertices [[buffer(AAPLVertexInputIndexVertices)]],
              constant vector_uint2 *viewportSizePointer [[buffer(AAPLVertexInputIndexViewportSize)]])
 {
-    RasterizerData out;
+    RasterizerDataDay2 out;
 
     // Index into the array of positions to get the current vertex.
     // The positions are specified in pixel dimensions (i.e. a value of 100
@@ -55,7 +55,7 @@ vertexShader(uint vertexID [[vertex_id]],
     return out;
 }
 
-fragment float4 fragmentShader(RasterizerData in [[stage_in]])
+fragment float4 fragmentShader(RasterizerDataDay2 in [[stage_in]])
 {
     // Return the interpolated color.
     return in.color;
