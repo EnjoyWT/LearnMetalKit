@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F21DCF932C08171C009782E6 /* Day5.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21DCF922C08171C009782E6 /* Day5.swift */; };
+		F21DCF952C0817A5009782E6 /* Day5.metal in Sources */ = {isa = PBXBuildFile; fileRef = F21DCF942C0817A5009782E6 /* Day5.metal */; };
+		F21DCF9B2C095EDE009782E6 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F21DCF9A2C095EDE009782E6 /* 1.jpg */; };
 		F2B7C7DB2BFC962700289100 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B7C7DA2BFC962700289100 /* AppDelegate.swift */; };
 		F2B7C7DD2BFC962700289100 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B7C7DC2BFC962700289100 /* SceneDelegate.swift */; };
 		F2B7C7DF2BFC962700289100 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B7C7DE2BFC962700289100 /* ViewController.swift */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F21DCF922C08171C009782E6 /* Day5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day5.swift; sourceTree = "<group>"; };
+		F21DCF942C0817A5009782E6 /* Day5.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Day5.metal; sourceTree = "<group>"; };
+		F21DCF9A2C095EDE009782E6 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		F2B7C7D72BFC962700289100 /* LearnMetalKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnMetalKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B7C7DA2BFC962700289100 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2B7C7DC2BFC962700289100 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +73,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F21DCF912C081705009782E6 /* Day5 */ = {
+			isa = PBXGroup;
+			children = (
+				F21DCF9A2C095EDE009782E6 /* 1.jpg */,
+				F21DCF922C08171C009782E6 /* Day5.swift */,
+				F21DCF942C0817A5009782E6 /* Day5.metal */,
+			);
+			path = Day5;
+			sourceTree = "<group>";
+		};
 		F2B7C7CE2BFC962700289100 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +120,7 @@
 		F2B7C7EE2BFC964200289100 /* Days */ = {
 			isa = PBXGroup;
 			children = (
+				F21DCF912C081705009782E6 /* Day5 */,
 				F2F8E5BB2C0031C20062F085 /* Day4 */,
 				F2B7C8012BFEE5AC00289100 /* Day3 */,
 				F2B7C8002BFEE58D00289100 /* Day2 */,
@@ -227,6 +244,7 @@
 				F2B7C8082BFF253D00289100 /* abc.png in Resources */,
 				F2B7C7E72BFC962800289100 /* LaunchScreen.storyboard in Resources */,
 				F2F8E5D02C0068350062F085 /* mask1.jpg in Resources */,
+				F21DCF9B2C095EDE009782E6 /* 1.jpg in Resources */,
 				F2B7C7E42BFC962800289100 /* Assets.xcassets in Resources */,
 				F2B7C7E22BFC962700289100 /* Main.storyboard in Resources */,
 			);
@@ -241,8 +259,10 @@
 			files = (
 				F2B7C7DF2BFC962700289100 /* ViewController.swift in Sources */,
 				F2F8E5BD2C0031D20062F085 /* Day4.swift in Sources */,
+				F21DCF952C0817A5009782E6 /* Day5.metal in Sources */,
 				F2B7C7F82BFDB99F00289100 /* Day2.swift in Sources */,
 				F2F8E5BF2C0032020062F085 /* Day4.metal in Sources */,
+				F21DCF932C08171C009782E6 /* Day5.swift in Sources */,
 				F2B7C7FA2BFDBABC00289100 /* AAPLShaders.metal in Sources */,
 				F2B7C7F42BFC988000289100 /* Day1.swift in Sources */,
 				F2B7C7F12BFC980D00289100 /* BaseViewController.swift in Sources */,

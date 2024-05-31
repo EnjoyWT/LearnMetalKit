@@ -14,7 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // 手动记录的练习 ViewController 类名数组
     let practiceViewControllers: [String] = {
         // 设定范围，例如 1 到 10
-        let range = 1 ... 4
+        let range = 1 ... 5
         return range.map { "Day\($0)" }
     }()
     
