@@ -27,6 +27,10 @@ class Day5: BaseViewController {
     var texture: MTLTexture!
 
     var isShowBg: Bool = false
+
+    var ascending: Bool = true
+    var currentNumber = 1
+    var timer: Timer!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +41,11 @@ class Day5: BaseViewController {
         setupTexture()
 
         viewPortSize = vector_uint2(UInt32(metalView.drawableSize.width), UInt32(metalView.drawableSize.height))
+
+        // 创建一个定时器，每隔40毫秒触发一次
+        timer = Timer.scheduledTimer(withTimeInterval: 0.04, repeats: true) { [weak self] _ in
+            self?.updateNumber()
+        }
     }
 
     @objc func btnClick(_ sender: UIButton) {
@@ -151,12 +160,20 @@ class Day5: BaseViewController {
     }
 
     func setupTexture() {
-        guard let image = UIImage(named: "1.jpg") else { return }
+//        guard let image = UIImage(named: "1.jpg") else { return }
+        
+        let filePath1 = Bundle.main.path(forResource: "\(currentNumber + 1)", ofType: "sij")!
+        let image = UIImage(contentsOfFile: filePath1)!
 
-        guard let originalImage = UIImage(named: "abc.png")
-        else {
-            fatalError("Failed to load images")
-        }
+
+//        guard let originalImage = UIImage(named: "abc.png")
+//        else {
+//            fatalError("Failed to load images")
+//        }
+
+        let filePath = Bundle.main.path(forResource: "\(currentNumber)", ofType: "sij")!
+        let originalImage = UIImage(contentsOfFile: filePath)!
+
         // 纹理描述符
         let textureDescriptor = MTLTextureDescriptor()
         textureDescriptor.pixelFormat = .rgba8Unorm
@@ -172,9 +189,9 @@ class Day5: BaseViewController {
             free(imageBytes) // 需要释放资源
         }
 
-        let originalImage1 = resizeImage(image: originalImage, targetSize: CGSizeMake(111, 111))
+        let originalImage1 = resizeImage(image: originalImage, targetSize: CGSizeMake(300, 400))
 
-        let region1 = MTLRegion(origin: MTLOrigin(x: 215, y: 231, z: 0), size: MTLSize(width: Int(111), height: Int(111), depth: 1)) // 纹理上传的范围
+        let region1 = MTLRegion(origin: MTLOrigin(x: 100, y: 400, z: 0), size: MTLSize(width: Int(300), height: Int(400), depth: 1)) // 纹理上传的范围
 
         if let imageBytes = loadImage(originalImage1!) { // UIImage的数据需要转成二进制才能上传，且不用jpg、png的NSData
             texture?.replace(region: region1, mipmapLevel: 0, withBytes: imageBytes, bytesPerRow: 4 * Int(originalImage1!.size.width))
@@ -183,6 +200,20 @@ class Day5: BaseViewController {
 
         // 这里偷懒了.进行了二次处理,因为不知道图片的大小.
         triangleVertices = calculateVertices(for: .scaleAspectFit, textureSize: CGSize(width: Int(image.size.width), height: Int(image.size.height)), viewSize: metalView.drawableSize)
+    }
+
+    func updateNumber() {
+        if ascending {
+            currentNumber += 1
+            if currentNumber >= 500 {
+                ascending = false
+            }
+        } else {
+            currentNumber -= 1
+            if currentNumber <= 1 {
+                ascending = true
+            }
+        }
     }
 
     //
@@ -224,6 +255,7 @@ class Day5: BaseViewController {
     }
 
     override func draw(in view: MTKView) {
+        setupTexture()
         view.clearColor = MTLClearColorMake(0, 0, 0, 1)
 //
 

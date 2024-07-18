@@ -300,7 +300,7 @@ class Day4: BaseViewController {
         }
 
         // 创建一个 UInt8 类型的变量
-        var boolValueUInt8: UInt8 = isShowBg ? 1 : 0
+        let boolValueUInt8: UInt8 = isShowBg ? 1 : 0
 
         let boolValueUInt8Ptr = withUnsafePointer(to: boolValueUInt8) {
             $0
